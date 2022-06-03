@@ -1,5 +1,21 @@
-<ul>
+<!-- <ul>
   <li *ngFor="let pais of paises">
     {{pais.name.common}} - {{pais.population}}
   </li>
-</ul>
+</ul> -->
+
+
+    <div class="col-sm-4 col-md-4 col-lg-3" >
+      <div class="card" *ngFor="let song of songs" >
+        <img [src]="song.images[0].url" class="card-img-top" alt="">
+        <div class="card-body">
+          <h5 class="card-title">{{song.name}}</h5>
+          <p class="card-text">
+            <span class="badge rounded-pill text-bg-primary" *ngFor="let artista of song.artists" >
+              {{artista.name}}
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+

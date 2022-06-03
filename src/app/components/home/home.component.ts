@@ -8,7 +8,7 @@ import { SpotifyService } from 'src/app/services/spotify.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  paises:any[]=[];
+  // paises:any[]=[];
 
   // /**
   //  *
@@ -23,8 +23,16 @@ export class HomeComponent {
   //     console.log(resp);// imprime toda la informacion que contenga la URl en consola
   //   });
   //  }
+
+  songs:any[]=[];
+  artistas:any[]=[];
   constructor(private sptifyService:SpotifyService){//injectar el servicio, para poder ver la informacion que proporciona el servico
-    this.sptifyService.getNewReleases();// llamar la funcion get
+    this.sptifyService.getNewReleases()// llamar la funcion get
+    .subscribe((data:any)=>{
+      console.log(data.albums.items);//espesificar que se requiere de la infromacion
+      this.songs=data.albums.items;
+
+    })
   }
 
 

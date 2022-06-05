@@ -20,7 +20,7 @@ export class SpotifyService {
    getQuery(quiery:string){
      const url=`https://api.spotify.com/v1/${quiery}`;
      const headers=new HttpHeaders({//esto permite espesificar los header que necesita la app, en este caso son la autorizacion y el token
-      'Authorization':'Bearer BQCWEYkNvJIjSx0iQFjRwUK5V9QRxFEMnfJqjfoxK81foes2zuuDq6Z7ql-b_K_oerncvCRO9yRngh7XEws'// si el token caduca, solo generar un get en postman para obtener nuevo token
+      'Authorization':'Bearer BQBnLREQ4CUaNPLokI6lTz62I-fDzknQ_D0NnPhJXEAwaCT8YrbnNA1Ry8SfKTXa0uabdIP7v2H7-ZwE9rU'// si el token caduca, solo generar un get en postman para obtener nuevo token
     });
     return this.http.get(url,{headers});
    }

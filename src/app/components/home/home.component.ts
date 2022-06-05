@@ -31,6 +31,7 @@ export class HomeComponent {
     .subscribe((data:any)=>{
       console.log(data.albums.items);//espesificar que se requiere de la infromacion
       this.songs=data.albums.items;
+      //this.songs=data
 
     })
   }

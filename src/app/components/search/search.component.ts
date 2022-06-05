@@ -12,7 +12,7 @@ export class SearchComponent  {
   constructor( private SpotifyService:SpotifyService) { }
 
   /**
-   * buscar todas las coincidencias
+   * buscar todas las coincidencias con el artista
    * @param termino
    */
   buscar(termino:string){

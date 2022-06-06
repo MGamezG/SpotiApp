@@ -9,12 +9,14 @@ import { SpotifyService } from 'src/app/services/spotify.service';
 })
 export class HomeComponent {
   songs:any[]=[];
-  artistas:any[]=[];
+  loading:boolean;
   constructor(private sptifyService:SpotifyService){//injectar el servicio, para poder ver la informacion que proporciona el servico
+    this.loading=true;
     this.sptifyService.getNewReleases()// llamar la funcion get
     .subscribe((data:any)=>{
       console.log(data.albums.items);//espesificar que se requiere de la infromacion e imprimirla en consola
       this.songs=data.albums.items;
+      this.loading=false;
       //this.songs=data
 
     })

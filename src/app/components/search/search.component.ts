@@ -8,8 +8,11 @@ import { SpotifyService } from 'src/app/services/spotify.service';
 })
 export class SearchComponent  {
   artistas:any[]=[];
+  loading:boolean;
 
-  constructor( private SpotifyService:SpotifyService) { }
+  constructor( private SpotifyService:SpotifyService) {
+    this.loading=true;
+  }
 
   /**
    * buscar todas las coincidencias con el artista
@@ -21,6 +24,7 @@ export class SearchComponent  {
     .subscribe((data:any)=>{
       console.log(data.artists.items);
       this.artistas=data.artists.items;
+      this.loading=false;
     });
   }
 

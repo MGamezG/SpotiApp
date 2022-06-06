@@ -20,7 +20,7 @@ export class SearchComponent  {
    */
   buscar(termino:string){
     console.log(termino);
-    this.SpotifyService.getArtist(termino)
+    this.SpotifyService.getArtists(termino)
     .subscribe((data:any)=>{
       console.log(data.artists.items);
       this.artistas=data.artists.items;

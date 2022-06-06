@@ -20,7 +20,7 @@ export class SpotifyService {
    getQuery(quiery:string){
      const url=`https://api.spotify.com/v1/${quiery}`;
      const headers=new HttpHeaders({//esto permite espesificar los header que necesita la app, en este caso son la autorizacion y el token
-      'Authorization':'Bearer BQBktJca7mGasA0ciA7qWCn4Tqnwjam6IWDwYGVV82n5iIdcxfmjJmxqHkxusDlx8ySyZ80Klm3cAww3R3Y'// si el token caduca, solo generar un get en postman para obtener nuevo token
+      'Authorization':'Bearer BQA3FJ4wcwqPBNkINMjKOkbSQtE3PJ5jocnAhjBkCsvL6CQc_e7cCenARyqxVjU-2EP5ZvLLouLVOIl0FM0'// si el token caduca, solo generar un get en postman para obtener nuevo token
     });
     return this.http.get(url,{headers});
    }
@@ -50,11 +50,15 @@ export class SpotifyService {
    * @param termino artista
    * @returns obesrvable<any>
    */
-  getArtist(termino:string):Observable<any>{
+  getArtists(termino:string):Observable<any>{
     return this.getQuery(`search?q=${termino}&type=artist&limit=15`);
     // const headers=new HttpHeaders({
     //   'Authorization':'Bearer BQCWEYkNvJIjSx0iQFjRwUK5V9QRxFEMnfJqjfoxK81foes2zuuDq6Z7ql-b_K_oerncvCRO9yRngh7XEws'
     // });
   //  return this.http.get(`https://api.spotify.com/v1/search?q=${termino}&type=artist&limit=15`,{headers});
+  }
+  getArtist(id:string):Observable<any>{
+    return this.getQuery(`artists/${id}`);
+
   }
 }

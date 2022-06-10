@@ -31,7 +31,8 @@
           <td>{{top.album.name}}</td>
           <td>{{top.name}}</td>
           <td>
-            <audio [src]="top.preview_url" controls></audio>
+            <!-- <audio [src]="top.preview_url" controls></audio> -->
+            <iframe class="songframe" [src]="top.uri | domseguro"  frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
           </td>
         </tr>
       </tbody>
